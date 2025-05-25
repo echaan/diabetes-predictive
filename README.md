@@ -62,7 +62,7 @@ Berikut adalah uraian detail dari setiap variabel atau fitur yang terdapat dalam
 ### Exploratory Data Analysis
 
 **Univariate Analysis**
-![univariate outcome](image/outcome)
+![univariate outcome](images/outcome.png)
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
