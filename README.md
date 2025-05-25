@@ -77,7 +77,19 @@ Grafik ini menyajikan distribusi frekuensi untuk variabel target Outcome. Sumbu 
 
 5. Distribusi Fitur `Insulin`: Histogram ini menggambarkan distribusi kadar insulin serum 2 jam pasien. Sumbu horizontal menunjukkan rentang nilai insulin, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur Insulin menunjukkan kemiringan yang sangat kuat ke kanan (positively skewed), dengan konsentrasi data yang sangat tinggi pada nilai rendah, khususnya pada nilai 0. Jumlah nilai 0 yang sangat dominan mengindikasikan bahwa sebagian besar data insulin adalah hilang atau tidak tercatat, dan hanya sebagian kecil pasien yang memiliki nilai insulin yang terukur. Penanganan nilai 0 ini akan menjadi langkah kritis untuk memastikan validitas analisis.
 
-6. 
+6. Distribusi Fitur `BMI`: Histogram ini menyajikan distribusi Indeks Massa Tubuh (BMI) pasien. Sumbu horizontal merepresentasikan nilai BMI, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi BMI menunjukkan pola yang mendekati normal, terpusat di sekitar nilai 30-35. Namun, seperti pada fitur medis lainnya, terdapat sejumlah entri dengan nilai BMI 0 yang tidak valid secara medis. Selain itu, terdapat outlier pada nilai BMI yang sangat tinggi, mengindikasikan adanya pasien dengan obesitas ekstrem. Penanganan nilai 0 dan potensi outlier akan menjadi pertimbangan dalam proses pra-pemrosesan data
+
+7. Distribusi Fitur `DiabetesPedigreeFunction`: Grafik histogram ini menampilkan distribusi fungsi silsilah diabetes. Sumbu horizontal menunjukkan nilai fungsi silsilah, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur ini menunjukkan kemiringan yang kuat ke kanan (positively skewed), dengan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, khususnya di bawah 1.0. Hal ini mengindikasikan bahwa mayoritas pasien dalam dataset memiliki riwayat keluarga diabetes yang tidak terlalu dominan atau kuat, namun ada beberapa kasus dengan nilai fungsi silsilah yang lebih tinggi, menunjukkan riwayat genetik yang lebih signifikan.
+
+8. Distribusi Fitur `Age`: Histogram ini menggambarkan distribusi usia pasien dalam dataset. Sumbu horizontal merepresentasikan kelompok usia, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi usia menunjukkan konsentrasi tertinggi pada kelompok usia yang lebih muda, yaitu antara 20-40 tahun. Frekuensi pasien cenderung menurun seiring dengan bertambahnya usia, menunjukkan bahwa data lebih banyak mencakup pasien dalam rentang usia dewasa muda hingga menengah
+
+#### Multivariate Analysis
+![Correlation Heatmap](images/heatmap-corelation.png)
+* **Korelasi Antar Fitur dan Terhadap `Outcome`:** *Heatmap* korelasi yang ditampilkan menggambarkan matriks korelasi Pearson antar semua fitur numerik dan variabel target (`Outcome`). Warna yang lebih terang (mendekati 1 atau -1) menunjukkan korelasi yang lebih kuat, sedangkan warna yang lebih gelap (mendekati 0) menunjukkan korelasi yang lemah.
+    * **Korelasi Positif Kuat:** Fitur `Glucose` menunjukkan korelasi positif yang paling kuat dengan `Outcome` (diabetes). Ini mengindikasikan bahwa semakin tinggi kadar glukosa, semakin besar kemungkinan seseorang menderita diabetes. Fitur lain seperti `BMI` dan `Age` juga menunjukkan korelasi positif moderat dengan `Outcome`, menunjukkan bahwa Indeks Massa Tubuh yang lebih tinggi dan usia yang lebih tua berkorelasi dengan peningkatan risiko diabetes.
+    * **Korelasi Lainnya:** `Pregnancies` menunjukkan korelasi positif yang moderat dengan `Age` dan `Outcome`. `Insulin` menunjukkan korelasi positif yang cukup kuat dengan `Glucose` dan `BMI`, yang secara medis masuk akal. `SkinThickness` juga berkorelasi positif dengan `BMI`.
+    * **Korelasi Negatif atau Lemah:** Fitur `BloodPressure` menunjukkan korelasi yang relatif lemah dengan `Outcome` dan fitur lainnya.
+
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
