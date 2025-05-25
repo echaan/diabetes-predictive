@@ -67,21 +67,21 @@ Berikut adalah uraian detail dari setiap variabel atau fitur yang terdapat dalam
 Grafik ini menyajikan distribusi frekuensi untuk variabel target Outcome. Sumbu horizontal merepresentasikan dua kategori Outcome (0 untuk tidak diabetes dan 1 untuk diabetes), sedangkan sumbu vertikal menunjukkan jumlah (frekuensi) kasus untuk setiap kategori. Jumlah individu yang tidak menderita diabetes (Outcome = 0) jauh lebih dominan dibandingkan dengan individu yang menderita diabetes (Outcome = 1).
 
 ![Distribusi Variabel Numeric](images/univariate-numeric.png)
-1. Distribusi Fitur `Pregnancies`: Grafik histogram ini menggambarkan distribusi jumlah kehamilan pada pasien dalam dataset. Sumbu horizontal menunjukkan jumlah kehamilan, sementara sumbu vertikal merepresentasikan frekuensi kemunculan jumlah kehamilan tersebut. Terlihat bahwa mayoritas pasien memiliki jumlah kehamilan yang relatif rendah, dengan puncak distribusi berada pada 0 dan 1 kehamilan. Frekuensi kemunculan jumlah kehamilan cenderung menurun drastis seiring dengan bertambahnya angka kehamilan. Hal ini menunjukkan bahwa sebagian besar data berasal dari pasien dengan riwayat kehamilan yang sedikit
+- Distribusi Fitur `Pregnancies`: Grafik histogram ini menggambarkan distribusi jumlah kehamilan pada pasien dalam dataset. Sumbu horizontal menunjukkan jumlah kehamilan, sementara sumbu vertikal merepresentasikan frekuensi kemunculan jumlah kehamilan tersebut. Terlihat bahwa mayoritas pasien memiliki jumlah kehamilan yang relatif rendah, dengan puncak distribusi berada pada 0 dan 1 kehamilan. Frekuensi kemunculan jumlah kehamilan cenderung menurun drastis seiring dengan bertambahnya angka kehamilan. Hal ini menunjukkan bahwa sebagian besar data berasal dari pasien dengan riwayat kehamilan yang sedikit
 
-2. Distribusi Fitur `Glucose`: Grafik histogram ini menampilkan distribusi konsentrasi glukosa plasma 2 jam pada pasien. Sumbu horizontal menunjukkan rentang konsentrasi glukosa, dan sumbu vertikal menunjukkan frekuensinya. Observasi penting dari grafik ini adalah adanya sejumlah besar entri dengan nilai glukosa 0. Secara medis, konsentrasi glukosa tidak mungkin nol, yang mengindikasikan bahwa nilai-nilai ini merupakan data yang hilang atau tidak valid. Sebagian besar distribusi glukosa yang valid terkonsentrasi pada rentang sekitar 100-140.
+- Distribusi Fitur `Glucose`: Grafik histogram ini menampilkan distribusi konsentrasi glukosa plasma 2 jam pada pasien. Sumbu horizontal menunjukkan rentang konsentrasi glukosa, dan sumbu vertikal menunjukkan frekuensinya. Observasi penting dari grafik ini adalah adanya sejumlah besar entri dengan nilai glukosa 0. Secara medis, konsentrasi glukosa tidak mungkin nol, yang mengindikasikan bahwa nilai-nilai ini merupakan data yang hilang atau tidak valid. Sebagian besar distribusi glukosa yang valid terkonsentrasi pada rentang sekitar 100-140.
 
-3. Distribusi Fitur `BloodPressure`: Histogram ini menunjukkan distribusi tekanan darah diastolik pasien. Sumbu horizontal merepresentasikan nilai tekanan darah dalam mm Hg, dan sumbu vertikal menunjukkan frekuensinya. Mayoritas pasien memiliki tekanan darah diastolik di rentang normal, yaitu sekitar 60-80 mm Hg, dengan puncak distribusi pada sekitar 70 mm Hg. Namun, seperti pada fitur Glucose, terdapat sejumlah entri dengan nilai tekanan darah 0, yang secara medis tidak mungkin dan menunjukkan keberadaan nilai yang hilang atau tidak valid dalam dataset. Kondisi ini menuntut penanganan nilai 0 sebagai data hilang pada tahap selanjutnya.
+- Distribusi Fitur `BloodPressure`: Histogram ini menunjukkan distribusi tekanan darah diastolik pasien. Sumbu horizontal merepresentasikan nilai tekanan darah dalam mm Hg, dan sumbu vertikal menunjukkan frekuensinya. Mayoritas pasien memiliki tekanan darah diastolik di rentang normal, yaitu sekitar 60-80 mm Hg, dengan puncak distribusi pada sekitar 70 mm Hg. Namun, seperti pada fitur Glucose, terdapat sejumlah entri dengan nilai tekanan darah 0, yang secara medis tidak mungkin dan menunjukkan keberadaan nilai yang hilang atau tidak valid dalam dataset. Kondisi ini menuntut penanganan nilai 0 sebagai data hilang pada tahap selanjutnya.
 
-4. Distribusi Fitur `SkinThickness`: Grafik histogram ini menyajikan distribusi ketebalan lipatan kulit trisep pasien. Sumbu horizontal menunjukkan ketebalan dalam mm, sementara sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi menunjukkan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, dengan puncak yang jelas di sekitar nilai 0. Adanya jumlah signifikan nilai 0 pada fitur ini secara medis tidak realistis untuk ketebalan kulit, mengindikasikan bahwa ini adalah representasi dari data yang hilang atau tidak tercatat. Sisanya menunjukkan sebaran hingga sekitar 40 mm, dengan frekuensi yang menurun setelahnya. Penanganan nilai 0 ini akan menjadi aspek penting dalam tahap pembersihan data.
+- Distribusi Fitur `SkinThickness`: Grafik histogram ini menyajikan distribusi ketebalan lipatan kulit trisep pasien. Sumbu horizontal menunjukkan ketebalan dalam mm, sementara sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi menunjukkan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, dengan puncak yang jelas di sekitar nilai 0. Adanya jumlah signifikan nilai 0 pada fitur ini secara medis tidak realistis untuk ketebalan kulit, mengindikasikan bahwa ini adalah representasi dari data yang hilang atau tidak tercatat. Sisanya menunjukkan sebaran hingga sekitar 40 mm, dengan frekuensi yang menurun setelahnya. Penanganan nilai 0 ini akan menjadi aspek penting dalam tahap pembersihan data.
 
-5. Distribusi Fitur `Insulin`: Histogram ini menggambarkan distribusi kadar insulin serum 2 jam pasien. Sumbu horizontal menunjukkan rentang nilai insulin, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur Insulin menunjukkan kemiringan yang sangat kuat ke kanan (positively skewed), dengan konsentrasi data yang sangat tinggi pada nilai rendah, khususnya pada nilai 0. Jumlah nilai 0 yang sangat dominan mengindikasikan bahwa sebagian besar data insulin adalah hilang atau tidak tercatat, dan hanya sebagian kecil pasien yang memiliki nilai insulin yang terukur. Penanganan nilai 0 ini akan menjadi langkah kritis untuk memastikan validitas analisis.
+- Distribusi Fitur `Insulin`: Histogram ini menggambarkan distribusi kadar insulin serum 2 jam pasien. Sumbu horizontal menunjukkan rentang nilai insulin, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur Insulin menunjukkan kemiringan yang sangat kuat ke kanan (positively skewed), dengan konsentrasi data yang sangat tinggi pada nilai rendah, khususnya pada nilai 0. Jumlah nilai 0 yang sangat dominan mengindikasikan bahwa sebagian besar data insulin adalah hilang atau tidak tercatat, dan hanya sebagian kecil pasien yang memiliki nilai insulin yang terukur. Penanganan nilai 0 ini akan menjadi langkah kritis untuk memastikan validitas analisis.
 
-6. Distribusi Fitur `BMI`: Histogram ini menyajikan distribusi Indeks Massa Tubuh (BMI) pasien. Sumbu horizontal merepresentasikan nilai BMI, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi BMI menunjukkan pola yang mendekati normal, terpusat di sekitar nilai 30-35. Namun, seperti pada fitur medis lainnya, terdapat sejumlah entri dengan nilai BMI 0 yang tidak valid secara medis. Selain itu, terdapat outlier pada nilai BMI yang sangat tinggi, mengindikasikan adanya pasien dengan obesitas ekstrem. Penanganan nilai 0 dan potensi outlier akan menjadi pertimbangan dalam proses pra-pemrosesan data
+- Distribusi Fitur `BMI`: Histogram ini menyajikan distribusi Indeks Massa Tubuh (BMI) pasien. Sumbu horizontal merepresentasikan nilai BMI, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi BMI menunjukkan pola yang mendekati normal, terpusat di sekitar nilai 30-35. Namun, seperti pada fitur medis lainnya, terdapat sejumlah entri dengan nilai BMI 0 yang tidak valid secara medis. Selain itu, terdapat outlier pada nilai BMI yang sangat tinggi, mengindikasikan adanya pasien dengan obesitas ekstrem. Penanganan nilai 0 dan potensi outlier akan menjadi pertimbangan dalam proses pra-pemrosesan data
 
-7. Distribusi Fitur `DiabetesPedigreeFunction`: Grafik histogram ini menampilkan distribusi fungsi silsilah diabetes. Sumbu horizontal menunjukkan nilai fungsi silsilah, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur ini menunjukkan kemiringan yang kuat ke kanan (positively skewed), dengan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, khususnya di bawah 1.0. Hal ini mengindikasikan bahwa mayoritas pasien dalam dataset memiliki riwayat keluarga diabetes yang tidak terlalu dominan atau kuat, namun ada beberapa kasus dengan nilai fungsi silsilah yang lebih tinggi, menunjukkan riwayat genetik yang lebih signifikan.
+- Distribusi Fitur `DiabetesPedigreeFunction`: Grafik histogram ini menampilkan distribusi fungsi silsilah diabetes. Sumbu horizontal menunjukkan nilai fungsi silsilah, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur ini menunjukkan kemiringan yang kuat ke kanan (positively skewed), dengan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, khususnya di bawah 1.0. Hal ini mengindikasikan bahwa mayoritas pasien dalam dataset memiliki riwayat keluarga diabetes yang tidak terlalu dominan atau kuat, namun ada beberapa kasus dengan nilai fungsi silsilah yang lebih tinggi, menunjukkan riwayat genetik yang lebih signifikan.
 
-8. Distribusi Fitur `Age`: Histogram ini menggambarkan distribusi usia pasien dalam dataset. Sumbu horizontal merepresentasikan kelompok usia, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi usia menunjukkan konsentrasi tertinggi pada kelompok usia yang lebih muda, yaitu antara 20-40 tahun. Frekuensi pasien cenderung menurun seiring dengan bertambahnya usia, menunjukkan bahwa data lebih banyak mencakup pasien dalam rentang usia dewasa muda hingga menengah
+- Distribusi Fitur `Age`: Histogram ini menggambarkan distribusi usia pasien dalam dataset. Sumbu horizontal merepresentasikan kelompok usia, dan sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi usia menunjukkan konsentrasi tertinggi pada kelompok usia yang lebih muda, yaitu antara 20-40 tahun. Frekuensi pasien cenderung menurun seiring dengan bertambahnya usia, menunjukkan bahwa data lebih banyak mencakup pasien dalam rentang usia dewasa muda hingga menengah
 
 #### Multivariate Analysis
 ![Correlation Heatmap](images/heatmap-corelation.png)
@@ -91,11 +91,45 @@ Grafik ini menyajikan distribusi frekuensi untuk variabel target Outcome. Sumbu 
     * **Korelasi Negatif atau Lemah:** Fitur `BloodPressure` menunjukkan korelasi yang relatif lemah dengan `Outcome` dan fitur lainnya.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+### Penanganan Nilai Hilang (Imputasi Median)
+Pada tahap Data Understanding, teridentifikasi bahwa beberapa kolom numerik seperti Glucose, BloodPressure, SkinThickness, Insulin, dan BMI memiliki nilai 0 yang secara medis tidak valid dan mengindikasikan data yang hilang. Untuk mengatasi hal ini, nilai 0 pada kolom-kolom tersebut diganti dengan nilai Not a Number (np.nan), lalu nilai np.nan tersebut diisi (impute) dengan nilai median dari masing-masing kolom.
+
+```python
+cols_to_clean = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
+for col in cols_to_clean:
+    df[col] = df[col].replace(0, np.nan)
+    median_val = df[col].median()
+    df[col] = df[col].fillna(median_val)
+```
+
+Penggantian nilai 0 dengan median bertujuan untuk menjaga validitas data dan mencegah bias pada model. Median dipilih karena distribusi sebagian besar fitur ini cenderung miring (skewed), sehingga median lebih robust terhadap outlier dibandingkan rata-rata dalam mengisi nilai yang hilang
+
+
+### Pembagian Data Latih dan Uji (Train-Test Split)
+
+Dataset kemudian dibagi menjadi dua subset: data pelatihan (X_train, y_train) dan data pengujian (X_test, y_test). Pembagian dilakukan dengan proporsi 80% untuk pelatihan dan 20% untuk pengujian (test_size=0.2). Untuk memastikan hasil yang konsisten, random_state=42 digunakan. Pentingnya, stratify=y diterapkan untuk mempertahankan proporsi kelas target (Outcome) yang sama di kedua subset.
+
+```python
+X = df.drop('Outcome', axis=1)
+y = df['Outcome']
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y)
+```
+
+Pembagian ini krusial untuk evaluasi model yang objektif. Dengan melatih model pada satu set data dan mengujinya pada set data yang belum pernah dilihat, kita dapat memperkirakan kinerja model terhadap data baru secara realistis. Penggunaan stratify=y secara khusus menangani masalah class imbalance yang teridentifikasi pada tahap EDA, memastikan bahwa kedua kelas (diabetes dan non-diabetes) terwakili secara proporsional dalam set pelatihan dan pengujian.
+
+
+### Standardisasi Fitur (Feature Scaling) menggunakan StandardScaler
+Setelah pembagian data, fitur-fitur numerik dalam set pelatihan (X_train) diskalakan menggunakan StandardScaler. Metode fit_transform diterapkan pada X_train untuk menghitung rata-rata dan standar deviasi, lalu mentransformasi data. Selanjutnya, objek StandardScaler yang sama digunakan untuk mentransformasi X_test menggunakan metode transform saja, memastikan konsistensi penskalaan antara data latih dan data uji
+
+```python
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+
+Standardisasi fitur sangat penting karena fitur-fitur dalam dataset memiliki rentang nilai yang bervariasi. Algoritma machine learning tertentu, terutama yang berbasis jarak atau yang menggunakan optimasi gradien, dapat terpengaruh secara signifikan oleh perbedaan skala ini. Standardisasi membantu menempatkan semua fitur pada skala yang serupa (rata-rata 0, standar deviasi 1), memungkinkan algoritma konvergen lebih cepat dan berkinerja lebih baik. Melakukan penskalaan setelah pembagian data (yaitu, fit hanya pada data latih) mencegah data leakage, di mana informasi dari set pengujian dapat secara tidak sengaja mempengaruhi proses penskalaan pada set pelatihan
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
