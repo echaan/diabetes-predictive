@@ -61,9 +61,23 @@ Berikut adalah uraian detail dari setiap variabel atau fitur yang terdapat dalam
 
 ### Exploratory Data Analysis
 
-**Univariate Analysis**
-![univariate outcome](images/outcome.png)
+#### Univariate Analysis
 
+![Distribusi Variabel Outcome](images/outcome.png)
+Grafik ini menyajikan distribusi frekuensi untuk variabel target Outcome. Sumbu horizontal merepresentasikan dua kategori Outcome (0 untuk tidak diabetes dan 1 untuk diabetes), sedangkan sumbu vertikal menunjukkan jumlah (frekuensi) kasus untuk setiap kategori. Jumlah individu yang tidak menderita diabetes (Outcome = 0) jauh lebih dominan dibandingkan dengan individu yang menderita diabetes (Outcome = 1).
+
+![Distribusi Variabel Numeric](images/univariate-numeric.png)
+1. Distribusi Fitur `Pregnancies`: Grafik histogram ini menggambarkan distribusi jumlah kehamilan pada pasien dalam dataset. Sumbu horizontal menunjukkan jumlah kehamilan, sementara sumbu vertikal merepresentasikan frekuensi kemunculan jumlah kehamilan tersebut. Terlihat bahwa mayoritas pasien memiliki jumlah kehamilan yang relatif rendah, dengan puncak distribusi berada pada 0 dan 1 kehamilan. Frekuensi kemunculan jumlah kehamilan cenderung menurun drastis seiring dengan bertambahnya angka kehamilan. Hal ini menunjukkan bahwa sebagian besar data berasal dari pasien dengan riwayat kehamilan yang sedikit
+
+2. Distribusi Fitur `Glucose`: Grafik histogram ini menampilkan distribusi konsentrasi glukosa plasma 2 jam pada pasien. Sumbu horizontal menunjukkan rentang konsentrasi glukosa, dan sumbu vertikal menunjukkan frekuensinya. Observasi penting dari grafik ini adalah adanya sejumlah besar entri dengan nilai glukosa 0. Secara medis, konsentrasi glukosa tidak mungkin nol, yang mengindikasikan bahwa nilai-nilai ini merupakan data yang hilang atau tidak valid. Sebagian besar distribusi glukosa yang valid terkonsentrasi pada rentang sekitar 100-140.
+
+3. Distribusi Fitur `BloodPressure`: Histogram ini menunjukkan distribusi tekanan darah diastolik pasien. Sumbu horizontal merepresentasikan nilai tekanan darah dalam mm Hg, dan sumbu vertikal menunjukkan frekuensinya. Mayoritas pasien memiliki tekanan darah diastolik di rentang normal, yaitu sekitar 60-80 mm Hg, dengan puncak distribusi pada sekitar 70 mm Hg. Namun, seperti pada fitur Glucose, terdapat sejumlah entri dengan nilai tekanan darah 0, yang secara medis tidak mungkin dan menunjukkan keberadaan nilai yang hilang atau tidak valid dalam dataset. Kondisi ini menuntut penanganan nilai 0 sebagai data hilang pada tahap selanjutnya.
+
+4. Distribusi Fitur `SkinThickness`: Grafik histogram ini menyajikan distribusi ketebalan lipatan kulit trisep pasien. Sumbu horizontal menunjukkan ketebalan dalam mm, sementara sumbu vertikal menunjukkan frekuensi kemunculannya. Distribusi menunjukkan sebagian besar nilai terkonsentrasi pada rentang yang lebih rendah, dengan puncak yang jelas di sekitar nilai 0. Adanya jumlah signifikan nilai 0 pada fitur ini secara medis tidak realistis untuk ketebalan kulit, mengindikasikan bahwa ini adalah representasi dari data yang hilang atau tidak tercatat. Sisanya menunjukkan sebaran hingga sekitar 40 mm, dengan frekuensi yang menurun setelahnya. Penanganan nilai 0 ini akan menjadi aspek penting dalam tahap pembersihan data.
+
+5. Distribusi Fitur `Insulin`: Histogram ini menggambarkan distribusi kadar insulin serum 2 jam pasien. Sumbu horizontal menunjukkan rentang nilai insulin, dan sumbu vertikal menunjukkan frekuensinya. Distribusi fitur Insulin menunjukkan kemiringan yang sangat kuat ke kanan (positively skewed), dengan konsentrasi data yang sangat tinggi pada nilai rendah, khususnya pada nilai 0. Jumlah nilai 0 yang sangat dominan mengindikasikan bahwa sebagian besar data insulin adalah hilang atau tidak tercatat, dan hanya sebagian kecil pasien yang memiliki nilai insulin yang terukur. Penanganan nilai 0 ini akan menjadi langkah kritis untuk memastikan validitas analisis.
+
+6. 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
