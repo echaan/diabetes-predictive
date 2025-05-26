@@ -82,25 +82,24 @@ categorical_features = ['Outcome']
 Analisis univariat adalah teknik statistik yang memeriksa satu variabel pada satu waktu untuk menjelaskan karakteristik atau mendeteksi pola dalam data
 """
 
-# Create distribution plots for each numerical variable
-for col in numerical_features:
-    plt.figure(figsize=(12, 6))
+# Hitung jumlah subplot yang dibutuhkan
+n_features = len(numerical_features)
+n_cols = 2  # 2 kolom per baris
+n_rows = (n_features + n_cols - 1) // n_cols  # Hitung jumlah baris yang dibutuhkan
 
-    # Histogram
-    plt.subplot(1, 2, 1)
-    sns.histplot(df[col], kde=True, bins=30)
-    plt.title(f'Distribution of {col}')
-    plt.xlabel(col)
-    plt.ylabel('Frequency')
+# Buat figure besar untuk semua plot
+plt.figure(figsize=(15, 5 * n_rows))
 
+# Plot histogram untuk setiap fitur numerik
+for i, col in enumerate(numerical_features, 1):
+    plt.subplot(n_rows, n_cols, i)
+    sns.histplot(df[col], kde=True, bins=30, color='skyblue')
+    plt.title(f'Distribusi {col}', fontsize=12)
+    plt.xlabel(col, fontsize=10)
+    plt.ylabel('Frekuensi', fontsize=10)
 
-    plt.tight_layout()
-    plt.show()
-
-    # Print skewness and kurtosis
-    print(f"\nStatistics for {col}:")
-    print(f"Skewness: {df[col].skew():.2f}")
-    print(f"Kurtosis: {df[col].kurtosis():.2f}")
+plt.tight_layout()
+plt.show()
 
 """Di atas merupakan distribusi dari masing masing fitur yang digambarkan melalui histogram. Dengan visualisasi ini, kita dapat melihat apakah data terdistribusi secara normal, memiliki kemiringan tertentu (skewness)"""
 
@@ -109,14 +108,25 @@ plt.figure(figsize=(18, 10))
 # Buat subplot untuk masing-masing fitur kategorikal
 for i, col in enumerate(categorical_features):
     plt.subplot(2, 3, i + 1)
-    sns.countplot(data=df, x=col, hue=col, palette='Set2', legend=False)  # tambahkan hue=col & legend=False
-    plt.title(f'Frekuensi {col}')
-    plt.xlabel(col)
-    plt.ylabel('Jumlah')
+    ax = sns.countplot(data=df, x=col)  # Hapus hue=col karena tidak diperlukan
+    plt.title(f'Frekuensi {col}', fontsize=12)
+    plt.xlabel(col, fontsize=10)
+    plt.ylabel('Jumlah', fontsize=10)
     plt.xticks(rotation=45)
 
-plt.suptitle('Univariate Analysis - Categorical Features', fontsize=16)
-plt.tight_layout(rect=[0, 0, 1, 0.95])
+    # Tambahkan label jumlah di atas setiap bar
+    for p in ax.patches:
+        ax.annotate(
+            f'{int(p.get_height())}',  # Tampilkan nilai integer
+            (p.get_x() + p.get_width() / 2., p.get_height()),
+            ha='center', va='center',
+            xytext=(0, 5),
+            textcoords='offset points',
+            fontsize=10
+        )
+
+plt.suptitle('Univariate Analysis - Categorical Features', fontsize=16, y=0.98)
+plt.tight_layout(rect=[0, 0, 1, 0.95])  # Adjust untuk memberi ruang judul utama
 plt.show()
 
 """Di atas merupakan diagram batang yang didesain secara visual untuk secara jelas menunjukkan frekuensi kemunculan setiap kategori dalam variabel 'Outcome'. Tinggi setiap batang merepresentasikan jumlah atau hitungan observasi untuk kategori tertentu
