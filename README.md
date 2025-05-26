@@ -1,4 +1,31 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - M. Eric Chaniago
+
+
+## Daftar Isi
+
+1. [Domain Proyek](#domain-proyek)
+2. [Business Understanding](#business-understanding)
+   - [Problem Statements](#problem-statements)
+   - [Goals](#goals)
+   - [Solution Statements](#solution-statements)
+3. [Data Understanding](#data-understanding)
+   - [Sumber Data](#sumber-data)
+   - [Informasi Umum Data](#informasi-umum-data)
+   - [Uraian Variabel](#uraian-variabel)
+   - [Exploratory Data Analysis](#exploratory-data-analysis)
+4. [Data Preparation](#data-preparation)
+   - [Penanganan Nilai Hilang](#penanganan-nilai-hilang-imputasi-median)
+   - [Pembagian Data Latih dan Uji](#pembagian-data-latih-dan-uji-train-test-split)
+   - [Standardisasi Fitur](#standardisasi-fitur-feature-scaling-menggunakan-standardscaler)
+5. [Modeling](#modeling)
+   - [Implementasi dan Karakteristik Algoritma](#implementasi-dan-karakteristik-algoritma)
+   - [Pemilihan Model Terbaik](#pemilihan-model-terbaik)
+6. [Evaluation](#evaluation)
+   - [Metrik Evaluasi yang Digunakan](#metrik-evaluasi-yang-digunakan)
+   - [Hasil Evaluasi Model](#hasil-evaluasi-model)
+7. [Referensi](#referensi)
+
+---
 
 ## Domain Proyek
 
@@ -151,26 +178,60 @@ Berdasarkan hasil evaluasi, Random Forest Classifier terpilih sebagai model terb
 
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+### Metrik Evaluasi yang Digunakan
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+#### Accuracy (Akurasi)
+Akurasi mengukur proporsi total prediksi yang benar dari semua prediksi yang dilakukan. Ini adalah metrik yang paling umum digunakan dan dihitung sebagai rasio jumlah prediksi benar terhadap total jumlah sampel.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+$$
+
+Akurasi bisa memberikan gambaran umum tentang seberapa baik model melakukan klasifikasi secara keseluruhan.
+
+#### Precision (Presisi)
+Presisi mengukur proporsi kasus positif yang diprediksi dengan benar dari semua kasus yang diprediksi sebagai positif. Ini menjawab pertanyaan: "Dari semua yang model katakan sebagai diabetes, berapa banyak yang benar-benar diabetes?"
+
+$$
+\text{Precision} = \frac{TP}{TP + FP}
+$$
+
+Diagnosis positif palsu dapat menyebabkan kekhawatiran yang tidak perlu, tes lanjutan yang mahal, dan potensi over-treatment. Metrik ini dapat melihat hal terserbut.
+
+#### Recall (Sensitivitas atau Tingkat True Positive)
+Recall mengukur proporsi kasus positif yang diprediksi dengan benar dari semua kasus positif yang sebenarnya ada dalam dataset. Ini menjawab pertanyaan: "Dari semua kasus diabetes yang sebenarnya, berapa banyak yang berhasil ditemukan oleh model?"
+
+$$
+\text{Recall} = \frac{TP}{TP + FN}
+$$
+
+Sangat krusial dalam prediksi diabetes karena diagnosis negatif palsu dapat menunda pengobatan yang vital dan berpotensi membahayakan nyawa pasien. 
+
+#### F1-Score
+F1-Score adalah rata-rata harmonis dari Precision dan Recall. Metrik ini berguna ketika ada kebutuhan untuk menyeimbangkan Precision dan Recall, terutama pada imbalanced dataset.
+
+
+Metrik ini memberikan ukuran kinerja model yang lebih seimbang, mempertimbangkan baik kemampuan model untuk menghindari positif palsu maupun negatif palsu. 
+
+### Hasil Evaluasi Model
+Berikut adalah ringkasan hasil evaluasi untuk setiap model yang dilatih pada data pengujian
+
+| Model        | Accuracy | Precision | Recall  | F1-Score |
+|--------------|----------|-----------|---------|----------|
+| XGBoost      | 0.740260 | 0.634615  | 0.611111| 0.622642 |
+| Decision Tree| 0.759740 | 0.639344  | 0.722222| 0.678261 |
+| Random Forest| 0.779221 | 0.717391  | 0.611111| 0.660000 |
+| SVM          | 0.740260 | 0.652174  | 0.555556| 0.600000 |
+| KNN          | 0.753247 | 0.660000  | 0.611111| 0.634615 |
+
+Random Forest unggul dengan akurasi tertinggi (0.779) dan presisi terbaik (0.717), menjadikannya ideal untuk prediksi diabetes yang membutuhkan kepastian tinggi. Decision Tree mencatat recall tertinggi (0.722) dan F1-Score terbaik (0.678), menunjukkan kemampuan optimal dalam menangkap kasus positif sebenarnya. XGBoost dan SVM memiliki akurasi identik (0.740), tetapi SVM lebih presisi sementara XGBoost lebih seimbang. KNN menawarkan kinerja kompetitif (akurasi 0.753) dengan presisi moderat (0.66), cocok untuk kebutuhan klasifikasi umum
+
+![Compare Algoritma](images/compare-algoritma.png)
+Meskipun Decision Tree menunjukkan Recall dan F1-Score tertinggi, Random Forest dipilih sebagai model terbaik (seperti yang telah dijelaskan pada bagian Modelling) karena akurasi dan presisinya yang unggul secara keseluruhan. Dalam konteks diagnosa penyakit seperti diabetes, menyeimbangkan antara meminimalkan positif palsu (Presisi tinggi) dan tidak melewatkan kasus positif (Recall tinggi) adalah penting. Pemilihan Random Forest mengindikasikan prioritas pada akurasi prediksi secara keseluruhan dan keandalan identifikasi kasus positif
 
 ## Refrensi
 * Butt, U. M., Letchmunan, S., Ali, M., Hassan, F. H., Baqir, A., & Sherazi, H. H. R. (2021). Machine learning based diabetes classification and prediction for healthcare applications. Journal of healthcare engineering, 2021(1), 9930985.
 * World Health Organization (WHO). (2023). Diabetes: Key facts. Diakses dari https://www.who.int/news-room/fact-sheets/detail/diabetes
 * Diabetes Prevention Program Research Group. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England journal of medicine, 346(6), 393-403.
-
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
 
