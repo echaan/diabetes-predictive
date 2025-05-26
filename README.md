@@ -232,6 +232,8 @@ Meskipun Decision Tree menunjukkan Recall dan F1-Score tertinggi, Random Forest 
 
 ## Refrensi
 * Butt, U. M., Letchmunan, S., Ali, M., Hassan, F. H., Baqir, A., & Sherazi, H. H. R. (2021). Machine learning based diabetes classification and prediction for healthcare applications. Journal of healthcare engineering, 2021(1), 9930985.
-* World Health Organization (WHO). (2023). Diabetes: Key facts. Diakses dari https://www.who.int/news-room/fact-sheets/detail/diabetes
 * Diabetes Prevention Program Research Group. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England journal of medicine, 346(6), 393-403.
+* International Diabetes Federation (IDF). (2021). IDF Diabetes Atlas, 10th edition. Diakses dari https://diabetesatlas.org/
+* World Health Organization (WHO). (2023). Diabetes: Key facts. Diakses dari https://www.who.int/news-room/fact-sheets/detail/diabetes
+
 
